@@ -1,0 +1,26 @@
+ansible --version
+
+to add servers in our inventory
+vim list-of-servers
+   < add the private ip of server >
+    exit
+ cat list-of-servers
+
+ to connect to all nodes
+    ansible -i list-of-servers all -e ansible_username=ec2-user -e ansible_password=Devops321 -m ping
+
+ example
+  vim test.yml
+    - name: Test Playbook
+      hosts: all
+      tasks:
+        - name: Print Hello
+          ansible.builtin.debug:
+            msg: Hello
+
+now run
+  ansible -i list-of-servers -e ansible_username=ec2-user -e ansible_password=Devops321 test.yml
+
+if you give server ip directly use , example:-
+    ansible -i 172.5.4.1,172.5.4.2, -e ansible_username=ec2-user -e ansible_password=Devops321 test.yml
+
