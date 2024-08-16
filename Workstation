@@ -1,5 +1,8 @@
+
+Installation of ansible
 sudo dnf install ansible
 #version was 2.14 latest is 2.17
 
 ansible --version
+
 
